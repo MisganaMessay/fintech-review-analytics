@@ -1,14 +1,20 @@
-# Data and Databases
-data/
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env/
+
+# Data
 *.csv
 *.db
-*.sqlite
+data/
 
-# Python environment
-__pycache__/
-.venv/
-env/
-.env
+# Jupyter
+.ipynb_checkpoints/
 
-# IDE
+# VSCode
 .vscode/

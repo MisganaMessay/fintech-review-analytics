@@ -11,3 +11,4 @@ sqlalchemy
 matplotlib
 seaborn
 pytest
+jupyter
