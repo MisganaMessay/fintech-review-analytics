@@ -1,0 +1,14 @@
+# Data and Databases
+data/
+*.csv
+*.db
+*.sqlite
+
+# Python environment
+__pycache__/
+.venv/
+env/
+.env
+
+# IDE
+.vscode/
