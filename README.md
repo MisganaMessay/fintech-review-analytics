@@ -1,43 +1,40 @@
-# Fintech Review Analytics
+## PostgreSQL Database Setup
 
-## Project Overview
-This project analyzes Google Play Store reviews for Ethiopian banking applications:
-- Commercial Bank of Ethiopia (CBE)
-- Bank of Abyssinia (BOA)
-- Dashen Bank
+### Create Database
 
-The goal is to identify customer satisfaction drivers, recurring complaints, and actionable product recommendations.
+```sql
+CREATE DATABASE fintech_reviews;
+```
 
----
+### Run Database Schema
 
-## Data Collection Methodology
-Reviews were scraped using the `google-play-scraper` Python package.
+```bash
+"C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -d fintech_reviews -f sql/schema.sql
+```
 
-Collected fields:
-- Review text
-- Rating
-- Review date
-- Bank name
-- Source
+### Load Processed Data
 
-Minimum target:
-- 400 reviews per bank
+```bash
+python scripts/load_to_postgres.py
+```
 
----
+## Database Schema
 
-## Preprocessing Steps
-- Removed duplicate reviews
-- Dropped missing values
-- Standardized date format
-- Saved cleaned dataset
+### banks Table
 
----
+| Column | Type |
+|---|---|
+| bank_id | SERIAL PRIMARY KEY |
+| bank_name | VARCHAR(100) |
 
-## Technologies Used
-- Python
-- Pandas
-- Scikit-learn
-- Hugging Face Transformers
-- PostgreSQL
-- Matplotlib
-- Seaborn
+### reviews Table
+
+| Column | Type |
+|---|---|
+| review_id | SERIAL PRIMARY KEY |
+| bank_id | INTEGER |
+| review_text | TEXT |
+| rating | INTEGER |
+| review_date | DATE |
+| sentiment_label | VARCHAR(20) |
+| sentiment_score | FLOAT |
