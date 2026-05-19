@@ -28,5 +28,5 @@ plt.tight_layout()
 plt.savefig(
     "keyword_frequency.png"
 )
-
+plt.savefig("theme_frequency.png")
 plt.show()
